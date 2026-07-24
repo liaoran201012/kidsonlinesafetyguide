@@ -3,7 +3,8 @@
  * Responsibilities:
  *   1. Capture Google Ads click identifiers (gclid / gbraid / wbraid) and UTM params from the URL.
  *   2. Persist them for the session so they survive navigation between pages.
- *   3. Rewrite every CTA link (<a class="cta">) to point at the tracker campaign URL,
+ *   3. Rewrite every explicitly marked affiliate link (<a data-affiliate>) to
+ *      point at the tracker campaign URL,
  *      appending the captured identifiers so the tracker can map a later conversion
  *      back to the Google Ads click (offline conversion import / OCI).
  *   4. Fire a soft "cta_click" gtag event for remarketing / early optimization.
@@ -15,7 +16,7 @@
 (function () {
   "use strict";
 
-  var TRACKER_CAMPAIGN_URL = "{{TRACKER_CAMPAIGN_URL}}";
+  var TRACKER_CAMPAIGN_URL = "https://afflat3d2.com/trk/lnk/EEEF4C3E-BAEE-4071-A07E-A006C5AB6168/?o=24645&c=918273&a=638483&k=83574FF7E92A367C505AAE60D3FA4C84&l=28885";
 
   var TRACK_KEYS = [
     "gclid", "gbraid", "wbraid",
@@ -57,7 +58,7 @@
 
   // --- 4: wire up CTAs --------------------------------------------------------
   function wireCtas(url) {
-    var ctas = document.querySelectorAll("a.cta");
+    var ctas = document.querySelectorAll("a[data-affiliate]");
     Array.prototype.forEach.call(ctas, function (a) {
       if (url) {
         a.setAttribute("href", url);
