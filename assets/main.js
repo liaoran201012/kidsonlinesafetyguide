@@ -16,7 +16,7 @@
 (function () {
   "use strict";
 
-  var TRACKER_CAMPAIGN_URL = "https://afflat3d2.com/trk/lnk/EEEF4C3E-BAEE-4071-A07E-A006C5AB6168/?o=24645&c=918273&a=638483&k=83574FF7E92A367C505AAE60D3FA4C84&l=28885";
+  var TRACKER_CAMPAIGN_URL = "https://go.kidsonlinesafetyguide.com/click/1";
 
   var TRACK_KEYS = [
     "gclid", "gbraid", "wbraid",
